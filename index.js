@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3333;
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,6 +34,8 @@ app.all('/control', (req, res) => {
   }
 });
 
+// Use the dynamic port assigned by Render
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
