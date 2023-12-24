@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,9 +19,8 @@ app.use(bodyParser.json());
 
 // Route for the root path
 app.get('/', (req, res) => {
-  res.render('index');
-  const ip = req.ip || req.remoteAddress;
-  res.json({ ip });
+  const ip = req.ip || req.connection.remoteAddress;
+  res.render('index', { ip }); // Pass the 'ip' variable to the Pug template
 });
 
 // Route to handle control actions using GET and POST methods
