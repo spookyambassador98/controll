@@ -18,16 +18,12 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 
 // Route for the root path
-app.get('/', (req, res) => {
+app.all('/', (req, res) => {
   const ip = req.ip || req.connection.remoteAddress;
-  res.render('index', { ip }); // Pass the 'ip' variable to the Pug template
-});
-
-// Route to handle control actions using GET and POST methods
-app.all('/control', (req, res) => {
+  
   if (req.method === 'GET') {
-    // Respond with an error for GET requests
-    res.status(405).json({ error: 'Method Not Allowed', message: 'Use POST method for /control' });
+    // Display IP address
+    res.render('index', { ip });
   } else if (req.method === 'POST') {
     const action = req.body.action;
     console.log(`Received action: ${action}`);

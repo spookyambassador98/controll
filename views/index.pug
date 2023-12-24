@@ -5,22 +5,22 @@ html
     link(rel='stylesheet', href='/styles.css')
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script.
-      $(document).ready(function() {
+      document.addEventListener('DOMContentLoaded', function () {
         // Display the IP address
         document.getElementById('ipAddress').innerText = 'Server IP: ' + '#{ip}';
         
         // Add event listeners for ON and OFF buttons
-        $('#onBtn').click(function() {
+        document.getElementById('onBtn').addEventListener('click', function () {
           sendData('ON');
         });
 
-        $('#offBtn').click(function() {
+        document.getElementById('offBtn').addEventListener('click', function () {
           sendData('OFF');
         });
 
         // Function to send data to the server
         function sendData(data) {
-          fetch('/control', {
+          fetch('/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
