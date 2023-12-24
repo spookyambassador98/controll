@@ -1,0 +1,29 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 50px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  #onBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  #offBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
