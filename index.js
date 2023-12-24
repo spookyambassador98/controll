@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 // Route for the root path
 app.get('/', (req, res) => {
   res.render('index');
+  const ip = req.ip || req.remoteAddress;
+  res.json({ ip });
 });
 
 // Route to handle control actions using GET and POST methods
