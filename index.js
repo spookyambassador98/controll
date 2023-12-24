@@ -41,6 +41,7 @@ app.all('/control', (req, res) => {
 
 // Use the dynamic port assigned by Render
 const PORT = process.env.PORT || 3333;
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+const HOST = '0.0.0.0'; // Listen on all available network interfaces
+app.listen(PORT, HOST, () => {
+  console.log(`Server is running at http://${HOST}:${PORT}`);
 });
